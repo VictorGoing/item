@@ -9,7 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ItemDto {
 
-    private Long id;
-    private Long owner;
     private String name;
 }

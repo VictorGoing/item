@@ -20,9 +20,14 @@ public class Item {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "OWNER")
+    @Column(name = "OWNER_ID")
     private Long owner;
 
     @Column(name = "NAME")
     private String name;
+
+    public Item(Long owner, String name) {
+        this.owner = owner;
+        this.name = name;
+    }
 }

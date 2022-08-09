@@ -1,23 +1,26 @@
 package com.example.item.service;
 
 import com.example.item.domain.Item;
+import com.example.item.domain.User;
 import com.example.item.repository.ItemRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ItemService {
 
-    private final ItemRepository itemRepository;
+    @Autowired
+    private ItemRepository itemRepository;
 
-    public void addItem(Item item) {
+    public Item addItem(String itemName, User user) {
+        Item item = new Item(user.getId(), itemName);
         itemRepository.save(item);
+        return item;
     }
 
-    public List<Item> getUserItems(Long ownerId) {
-        return itemRepository.findItemsByOwner(ownerId);
+    public List<Item> getUserItems(Long userId) {
+        return itemRepository.findItemsByOwner(userId);
     }
 }
