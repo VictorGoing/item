@@ -14,10 +14,9 @@ public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
 
-    public Item addItem(String itemName, User user) {
+    public void addItem(String itemName, User user) {
         Item item = new Item(user.getId(), itemName);
         itemRepository.save(item);
-        return item;
     }
 
     public List<Item> getUserItems(Long userId) {

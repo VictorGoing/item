@@ -12,4 +12,6 @@ import java.util.List;
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
     List<Item> findItemsByOwner(Long ownerId);
+    Item findByName(String name);
+    void deleteByName(String name);
 }
