@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootTest
 public class ItemServiceTest {
@@ -54,13 +56,14 @@ public class ItemServiceTest {
         itemService.addItem("addItemTest3", user);
         Long userId = userService.getUserByUserLogin("addItemTest").getId();
         //When
-        List<Item> list = itemService.getUserItems(userId);
+        List<Item> list = itemService.getUserItems(userId).stream().
+                sorted((Comparator.comparing(Item::getName))).collect(Collectors.toList());
 
         //Then
         Assertions.assertEquals(list.size(), 3);
-        Assertions.assertEquals(list.get(0).getName(), "addItemTest3");
+        Assertions.assertEquals(list.get(0).getName(), "addItemTest1");
         Assertions.assertEquals(list.get(1).getName(), "addItemTest2");
-        Assertions.assertEquals(list.get(2).getName(), "addItemTest1");
+        Assertions.assertEquals(list.get(2).getName(), "addItemTest3");
 
         //CleanUp
         itemRepository.deleteByName("addItemTest1");
