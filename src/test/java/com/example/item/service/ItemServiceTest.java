@@ -5,7 +5,6 @@ import com.example.item.domain.User;
 import com.example.item.dto.UserDto;
 import com.example.item.repository.ItemRepository;
 import com.example.item.repository.UserRepository;
-import io.jsonwebtoken.lang.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +58,9 @@ public class ItemServiceTest {
 
         //Then
         Assertions.assertEquals(list.size(), 3);
-        Assertions.assertEquals(list.get(0).getName(), "addItemTest1");
+        Assertions.assertEquals(list.get(0).getName(), "addItemTest3");
         Assertions.assertEquals(list.get(1).getName(), "addItemTest2");
-        Assertions.assertEquals(list.get(2).getName(), "addItemTest3");
+        Assertions.assertEquals(list.get(2).getName(), "addItemTest1");
 
         //CleanUp
         itemRepository.deleteByName("addItemTest1");
