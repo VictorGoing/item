@@ -5,11 +5,13 @@ Simple register/logIn program with Java, Spring, Mysql
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Sources](#sources)
 
 ## General info
-The item lets you register a user. 
-As a registered user, you can log in after which you will receive a JsonWebToken(JWT).
-Having JWT, you can add Items or download all the previously added ones. 
+
+The 'Item' allows you to register a user. 
+Registered user can log in and receive JWT in response.
+Authorized user can add items or download items previously added.
 
 ## Technologies
 * Java 11
@@ -19,12 +21,12 @@ Having JWT, you can add Items or download all the previously added ones.
 
 ## Setup
 
-To run the application download it to an environment like IntelliJ or similar.
-Install the technology you have if you don't have it. 
-Make sure the dependencies in the build.gradle file match.
-The application requires an "items" database in MySql. 
-Customize your database in the src/../resources/application.properties file.
-If everything agrees, run ItemApplication.
+To run the application you need to download it to IntelliJ or similar environment.
+Install the technologies listed above if you don't have them. 
+Make sure your build.gradle file has correct dependencies.
+The application also requires 'Items' database in MySql. 
+Customize your database connection in the file src/../resources/application.properties file.
+If everything is configured you can run application.
 
 ## Endpoints
 ### POST: register 
